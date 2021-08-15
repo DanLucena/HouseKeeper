@@ -1,2 +1,2 @@
 # HouseKeeper
-A simple project to test my skills with frontend and backend
+A simple project to improve my skills with frontend and backend

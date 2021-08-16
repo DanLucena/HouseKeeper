@@ -14,6 +14,7 @@
     .first-title{
       font-size: 3rem;
       font-weight: normal;
+      text-align: center;
     }
 
     .sub-title{
@@ -57,6 +58,21 @@
       }
     }
   }
+
+  .container-arrow{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .arrow-icon{
+      cursor: pointer;
+      animation-name: arrowUpAndDown;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  }
 }
 
 .container {
@@ -67,7 +83,6 @@
   place-content: initial;
   place-items: center;
   overflow: hidden;
-  background: #6C63FF;
   border-radius: 8px;
   position: relative;
   padding-left: .3rem;
@@ -90,4 +105,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes arrowUpAndDown {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }

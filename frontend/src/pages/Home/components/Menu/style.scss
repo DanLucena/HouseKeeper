@@ -30,6 +30,10 @@
         margin-right: 0;
       }
     }
+
+    @media(max-width:800px){
+      display: none;
+    }
   }
 
   .buttons{
@@ -50,5 +54,21 @@
       padding: .8rem 2.2rem;
       margin-left: 1rem;
     }
+
+    @media(max-width:800px){
+      display: none;
+    }
+  }
+
+  .menu{
+    display: none;
+    cursor: pointer;
+    @media(max-width:800px){
+      display: inline-block;
+    }
+  }
+
+  @media(max-width:800px){
+    padding: 0 1.5rem;
   }
 }

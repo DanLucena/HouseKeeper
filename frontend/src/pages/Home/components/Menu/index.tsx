@@ -1,4 +1,5 @@
 import './style.scss';
+import { HiOutlineMenu } from 'react-icons/hi';
 
 export function Menu() {
   return (
@@ -15,6 +16,7 @@ export function Menu() {
         <button className="login">LOGIN</button>
         <button className="sign-up">SIGN UP</button>
       </div>
+      <HiOutlineMenu className="menu" size="1.8rem" />
     </div>
   );
 }

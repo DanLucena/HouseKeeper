@@ -13,7 +13,9 @@ export function Hero() {
     "linear-gradient(180deg, #6C63FF 0%, #6C63FF 100%)",
     "linear-gradient(180deg, #B5B0FF 0%, #B5B0FF 100%)",
   ]);
+
   const [arrowMovement, serArrowMovement] = useState(0);
+  const [particlesNumber, setParticlesNumber] = useState(150);
 
   const controls = useAnimation();
 
@@ -26,6 +28,15 @@ export function Hero() {
       controls.start({ x: 0, opacity: 1, transition: { duration: 0.5 } });
     }
   }
+
+  const handleResize = () => {
+    (window.innerWidth <= 1050)
+      ? setParticlesNumber(50)
+      : setParticlesNumber(150)
+  }
+
+  window.addEventListener('load', handleResize);
+  window.addEventListener('resize', handleResize);
 
 
   return (
@@ -45,7 +56,7 @@ export function Hero() {
         params={{
           particles: {
             "number": {
-              "value": 150
+              "value": particlesNumber
             },
             line_linked: {
               shadow: {

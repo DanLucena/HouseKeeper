@@ -73,6 +73,10 @@
       animation-iteration-count: infinite;
     }
   }
+
+  @media(max-width:800px){
+    margin-top: 4.5rem;
+  }
 }
 
 .container {

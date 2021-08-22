@@ -1,9 +1,11 @@
 import './style.scss';
 import Particles from 'react-particles-js';
-import { useRef, useState } from "react";
-import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
+import { useContext, useRef, useState } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { FiArrowRight } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
+import { ModalContext } from '../../../../services/contexts/login-modal';
+import { AnimationContext } from '../../../../services/contexts/animation';
 
 export function Hero() {
   const constraintsRef = useRef(null);
@@ -16,14 +18,15 @@ export function Hero() {
 
   const [arrowMovement, serArrowMovement] = useState(0);
   const [particlesNumber, setParticlesNumber] = useState(150);
-
-  const controls = useAnimation();
+  const { openModal } = useContext(ModalContext);
+  const { controls } = useContext(AnimationContext);
 
   function handleDragEnd(_: any, info: any) {
     const offset = info.offset.x;
 
     if (offset > 72) {
       controls.start({ x: 152, opacity: 1, transition: { duration: 0.3 } });
+      setTimeout(() => { openModal() }, 50)
     } else {
       controls.start({ x: 0, opacity: 1, transition: { duration: 0.5 } });
     }

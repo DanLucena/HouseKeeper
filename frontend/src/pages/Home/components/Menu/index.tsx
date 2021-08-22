@@ -1,11 +1,13 @@
 import './style.scss';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ModalContext } from '../../../../services/contexts/login-modal';
 
 export function Menu() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openModal } = useContext(ModalContext);
 
   const handleResize = () => {
     (window.innerWidth > 800) && setIsMenuOpen(false);
@@ -36,7 +38,7 @@ export function Menu() {
         </ul>
       </div>
       <div className="buttons">
-        <button className="login">LOGIN</button>
+        <button className="login" onClick={() => { openModal() }}>LOGIN</button>
         <button className="sign-up">SIGN UP</button>
       </div>
       {

@@ -1,0 +1,50 @@
+.box-info{
+  border: 1px solid #B7B7B7;
+  width: 21rem;
+  height: 28rem;
+  border-radius: 8px;
+
+  .box-content{
+    width: 100%;
+    padding: 1.2rem 1rem 0 1.2rem;
+
+    .title{
+      font-size: 1.1rem;
+      margin: .8rem 0 1.2rem 0;
+    }
+
+    p{
+      text-align: justify;
+      color: #999999;
+    }
+  }
+
+  .read{
+    margin-top: 4.56rem;
+    width: 100%;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    font-size: 1rem;
+    background: #6C63FF;
+    color: #fff;
+    text-align: left;
+    padding:1.3rem;
+    display: flex;
+    align-items: center;
+
+    .arrow-esquerda{
+      margin-left: .6rem;
+      transition: .3s all;
+    }
+
+    &:hover{
+      .arrow-esquerda{
+        margin-left: 1.6rem;
+      }
+    }
+  }
+
+  @media(max-width:1070px){
+    margin-bottom: 2rem;
+  }
+}

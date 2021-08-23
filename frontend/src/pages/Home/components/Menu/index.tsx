@@ -26,7 +26,7 @@ export function Menu() {
           {
             isMenuOpen &&
             (<>
-              <li>Login</li>
+              <li onClick={() => { setIsMenuOpen(false); openModal() }}>Login</li>
               <button>Get Started</button>
               <div className="social-media">
                 <span>Facebook</span>

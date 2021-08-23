@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { Home } from './pages/Home/index';
+import { MainPage } from './main';
 import { isAuthenticated } from './services/auth';
 
 
@@ -20,7 +20,7 @@ const LogedRoutes = ({ component: Component, ...rest }: any) => (
 export const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={Home} exact />
+      <Route path="/" component={MainPage} exact />
     </Switch>
   </BrowserRouter>
 );

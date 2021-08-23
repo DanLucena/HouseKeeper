@@ -1,0 +1,32 @@
+.about-container{
+  width: 100%;
+  height: 100vh;
+  margin-top: 20rem;
+  padding-top:5rem;
+
+  h1{
+    font-size: 2.6rem;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  span{
+    width: 100%;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    color: #999999;
+  }
+
+  .box-info-container{
+    margin-top: 8rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    @media(max-width:1070px){
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

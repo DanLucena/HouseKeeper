@@ -12,7 +12,7 @@ interface IUserRepository {
     deleteUser({ id }): Promise<void>;
     listUsers(): Promise<User[]>;
     elevateAccessLevel({ id }): Promise<void>;
-    findById(id): Promise<User>;
+    findById({ id }): Promise<User>;
 }
 
 export { IUserDTO, IUserRepository };

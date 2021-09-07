@@ -19,7 +19,7 @@ class UserRepositoryInMemory implements IUserRepository {
   }
 
   async deleteUser({ id }): Promise<void> {
-    this.users.filter((user) => user.id !== id);
+    this.users = this.users.filter((user) => user.id !== id);
   }
 
   async listUsers(): Promise<User[]> {

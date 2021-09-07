@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 
 class CreateUserController {
 
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { username, email, password } = request.body;
         const createUserUseCase = container.resolve(CreateUserUseCase);
         await createUserUseCase.execute({ username, email, password });

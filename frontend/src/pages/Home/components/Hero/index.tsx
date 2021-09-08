@@ -6,6 +6,8 @@ import { FiArrowRight } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { ModalContext } from '../../../../services/contexts/login-modal';
 import { AnimationContext } from '../../../../services/contexts/animation';
+import { isAuthenticated } from '../../../../services/auth';
+import { useHistory } from 'react-router-dom';
 
 export function Hero() {
   const constraintsRef = useRef(null);
@@ -20,13 +22,23 @@ export function Hero() {
   const [particlesNumber, setParticlesNumber] = useState(150);
   const { openModal } = useContext(ModalContext);
   const { controls } = useContext(AnimationContext);
+  let history = useHistory();
+
+  const RouteChange = () => {
+    let path = `dashboard`;
+    history.push(path);
+  }
+
 
   function handleDragEnd(_: any, info: any) {
     const offset = info.offset.x;
 
     if (offset > 72) {
       controls.start({ x: 152, opacity: 1, transition: { duration: 0.3 } });
-      setTimeout(() => { openModal() }, 50)
+      isAuthenticated()
+        ? setTimeout(() => { RouteChange() }, 300)
+        : setTimeout(() => { openModal() }, 50);
+
     } else {
       controls.start({ x: 0, opacity: 1, transition: { duration: 0.5 } });
     }

@@ -3,14 +3,22 @@ import { HiOutlineMenu } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
 import { useState, useContext } from 'react';
 import { ModalContext } from '../../../../services/contexts/login-modal';
+import { isAuthenticated } from '../../../../services/auth';
+import { useHistory } from "react-router-dom";
 
 export function Menu() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModal } = useContext(ModalContext);
+  let history = useHistory();
 
   const handleResize = () => {
     (window.innerWidth > 800) && setIsMenuOpen(false);
+  }
+
+  const RouteChange = () => {
+    let path = `dashboard`;
+    history.push(path);
   }
 
   window.addEventListener('resize', handleResize);
@@ -26,7 +34,7 @@ export function Menu() {
           {
             isMenuOpen &&
             (<>
-              <li onClick={() => { setIsMenuOpen(false); openModal() }}>Login</li>
+              <li onClick={() => { setIsMenuOpen(false); isAuthenticated() ? RouteChange() : openModal() }}>Login</li>
               <button>Get Started</button>
               <div className="social-media">
                 <span>Facebook</span>
@@ -38,7 +46,7 @@ export function Menu() {
         </ul>
       </div>
       <div className="buttons">
-        <button className="login" onClick={() => { openModal() }}>LOGIN</button>
+        <button className="login" onClick={() => { isAuthenticated() ? RouteChange() : openModal() }}>LOGIN</button>
         <button className="sign-up">SIGN UP</button>
       </div>
       {

@@ -1,0 +1,32 @@
+.container-sidemenu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 100vh;
+  background-color: #F6F8FA;
+  border-right: 1px solid #D9DEE3;
+  transition: .5s;
+
+  .sidemenu-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  @media(min-width:800px){
+    &:hover{
+      width: 18rem;
+    } 
+  }
+
+  @media(max-width:800px){
+    top: calc(100vh - 3.5rem);
+    bottom: 0;
+    width: 100%;
+    height: 3.5rem;
+    border-right: none;
+    border-top: 1px solid #D9DEE3;
+  }
+}

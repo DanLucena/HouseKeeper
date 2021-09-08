@@ -1,1 +1,4 @@
-export const isAuthenticated = () => true;
+export function isAuthenticated() {
+  let x = document.cookie;
+  return x;
+};
